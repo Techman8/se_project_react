@@ -7,6 +7,8 @@ import Main from "../Main/Main";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import ItemModal from "../ItemModal/ItemModal";
 import { getweather, filterWeatherData } from "../../utils/weatherApi";
+import Footer from './components/Footer/Footer';
+
 
 function App() {
   const [weatherData, setWeatherData] = useState({ 
@@ -100,9 +102,9 @@ function App() {
       card={selectedCard} 
       onClose={closeActiveModal}
       />
-    <footer>
-      <p>© {new Date().getFullYear()} Nigel Battee - My Weather App</p>
-    </footer>
+    <Footer>
+      <p>&copy; {new Date().getFullYear()} Nigel Battee - My Weather App. All rights reserved.</p>
+    </Footer>
   </div>
   );
 }
