@@ -1,0 +1,83 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #0000004d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+}
+
+.modal__opened {
+    visibility: visible;
+}
+
+.modal__title {
+    margin: 0;
+    font-family: Cabinet Grotesk;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0%;
+
+}
+
+.modal__close {
+    position: absolute;
+    top: 20px;
+    right: 28px;
+}
+
+.modal__content {
+    background-color: #fff;
+    position: relative;
+    padding: 28px 28px 36px;
+    max-width: 496px;
+    box-sizing: border-box;
+    width: 100%;
+    width: 496;
+    height: 436;
+    opacity: 1;
+    border-width: 1px;
+    border-radius: 20px;
+    border: 1px solid #0000004D
+}
+
+.modal__form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.modal__input {
+    display: block;
+    width: 440;
+    height: 52;
+    top: 341px;
+    left: 500px;
+    opacity: 1;
+    border-width: 1px;
+    border: 1px solid #000000
+}
+
+.modal__radio-buttons {
+    border: none;
+    padding: none;
+    display: flex;
+    flex-direction: column;
+    width: 173;
+    height: 108;
+    top: 417px;
+    left: 500px;
+    opacity: 1;
+    font-family: Cabinet Grotesk;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0%;
+}
