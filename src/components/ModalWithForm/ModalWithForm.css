@@ -26,9 +26,11 @@
 }
 
 .modal__close {
+  background-image: url(../../assets/Union.png);
   position: absolute;
   top: 20px;
   right: 28px;
+  background: #0000004d;
 }
 
 .modal__content {
@@ -38,8 +40,8 @@
   max-width: 496px;
   box-sizing: border-box;
   width: 100%;
-  width: 496;
-  height: 436;
+  width: 496px;
+  height: 436px;
   opacity: 1;
   border-width: 1px;
   border-radius: 20px;
@@ -54,8 +56,8 @@
 
 .modal__input {
   display: block;
-  width: 440;
-  height: 52;
+  width: 440px;
+  height: 52px;
   top: 341px;
   left: 500px;
   opacity: 1;
@@ -65,11 +67,11 @@
 
 .modal__radio-buttons {
   border: none;
-  padding: none;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  width: 173;
-  height: 108;
+  width: 173px;
+  height: 108px;
   top: 417px;
   left: 500px;
   opacity: 1;
