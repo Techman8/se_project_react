@@ -16,21 +16,30 @@
 }
 
 .modal__title {
-  margin: 0;
+  margin: 0 0 24px;
   font-family: Cabinet Grotesk;
   font-weight: 700;
   font-style: Bold;
   font-size: 16px;
   line-height: 20px;
   letter-spacing: 0%;
+  width: 95;
+  height: 20;
+  top: 28px;
+  left: 28px;
+  opacity: 1;
 }
 
 .modal__close {
-  background-image: url(../../assets/Union.png);
+  background-image: url(../../assets/grey-close-icon.png);
   position: absolute;
+  background-color: transparent;
+  width: 20px;
+  height: 20px;
   top: 20px;
   right: 28px;
-  background: #0000004d;
+  opacity: 1;
+  border: none;
 }
 
 .modal__content {
@@ -40,8 +49,7 @@
   max-width: 496px;
   box-sizing: border-box;
   width: 100%;
-  width: 496px;
-  height: 436px;
+  min-height: 436px;
   opacity: 1;
   border-width: 1px;
   border-radius: 20px;
@@ -51,18 +59,23 @@
 .modal__form {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  opacity: 1;
+  gap: 8px;
 }
 
 .modal__input {
   display: block;
-  width: 440px;
-  height: 52px;
-  top: 341px;
-  left: 500px;
+  width: 100%;
+  top: 72px;
+  left: 28px;
+  right: 28px;
   opacity: 1;
   border-width: 1px;
-  border: 1px solid #000000;
+  border: none;
+  border-bottom: 1px solid #000;
+  margin-top: 8px;
+  margin-bottom: 10px;
+  padding-bottom: 4px;
 }
 
 .modal__radio-buttons {
@@ -70,15 +83,42 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  width: 173px;
-  height: 108px;
-  top: 417px;
-  left: 500px;
+  top: 224px;
+  left: 28px;
   opacity: 1;
   font-family: Cabinet Grotesk;
   font-weight: 700;
   font-style: Bold;
   font-size: 16px;
   line-height: 20px;
-  letter-spacing: 0%;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.modal__submit {
+  width: 124px;
+  height: 36px;
+  opacity: 1;
+  border-radius: 4px;
+  gap: 8px;
+  padding-top: 8px;
+  padding-right: 16px;
+  padding-bottom: 8px;
+  padding-left: 16px;
+  background: #0000004d;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+}
+
+.modal__label {
+  font-weight: 700;
+}
+
+.modal__label_type_radio {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.modal__legend {
+  margin-bottom: 12px;
 }

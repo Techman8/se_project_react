@@ -1,0 +1,5 @@
+.modal__image {
+  object-fit: cover;
+  display: block;
+  max-width: 100%;
+}
