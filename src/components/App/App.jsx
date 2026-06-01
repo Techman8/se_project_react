@@ -73,22 +73,11 @@ function App() {
       .catch(console.error);
   }, []);
 
-  // TODO- Add a delete button to the preview modal
-  // - Declare a handler in App.jsx (deleteItemHandler)
-  // - Pass handler to preview modal
-  // - Inside preview modal, pass the ID as an argument to the handler
-  //   (use the handler pattern found in ItemCard.jsx)
-  //  Inside the handler
-  //  - call removeItem function, pass it the ID
-  //  - in the .then() remove the item from the array
-  //  - how? filter it
-
   const deleteItemHandler = (id) => {
     removeItem(id)
       .then(() => {
-        // Filter out the deleted item from the state array
         setClothingItems((prevItems) =>
-          prevItems.filter((item) => item.id !== id),
+          prevItems.filter((item) => item._id !== id),
         );
 
         closeActiveModal();
@@ -136,6 +125,7 @@ function App() {
                 <Profile
                   onCardClick={handleCardClick}
                   clothingItems={clothingItems}
+                  handleAddClick={handleAddClick}
                 />
               }
             />

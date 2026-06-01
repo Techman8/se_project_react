@@ -2,14 +2,13 @@ import "./WeatherCard.css";
 import sunny from "../../assets/sunny.png";
 import cloudy from "../../assets/cloudy.png";
 import night from "../../assets/night.png";
-import rain_at_night from "../../assets/rain_at_night.png";
+import rainAtNight from "../../assets/rainAtNight.png";
 import rainy from "../../assets/rainy.png";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 import { useContext } from "react";
 
 function WeatherCard({ weatherData }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
-  console.log(weatherData.condition);
 
   const getWeatherImage = () => {
     switch (weatherData.condition) {
@@ -21,8 +20,8 @@ function WeatherCard({ weatherData }) {
         return sunny;
       case "night":
         return night;
-      case "rain_at_night":
-        return rain_at_night;
+      case "rainAtNight":
+        return rainAtNight;
       default:
         return sunny;
     }
