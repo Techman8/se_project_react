@@ -25,3 +25,8 @@
 .header__username {
   margin: 0;
 }
+
+.header__nav-link {
+  color: black;
+  text-decoration: none;
+}
