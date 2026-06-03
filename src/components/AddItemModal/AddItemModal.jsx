@@ -1,7 +1,8 @@
-import { useForm } from "../../../hooks/useForm";
+import { useForm } from "../../hooks/useForm";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import useModalClose from "../../hooks/useModalClose";
 
-const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
+const AddItemModal = ({ buttonText, isOpen, onAddItem, onClose }) => {
   const defaultValues = {
     name: "",
     imageUrl: "",
@@ -13,10 +14,13 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
     evt.preventDefault();
     onAddItem(values);
   }
+
+  useModalClose(isOpen, onClose);
+
   return (
     <ModalWithForm
       title="New garment"
-      buttonText="Add garment"
+      buttonText={buttonText}
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}

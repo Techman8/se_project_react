@@ -3,3 +3,9 @@
   display: block;
   max-width: 100%;
 }
+
+.modal__delete-button {
+  border: none;
+  background-color: transparent;
+  color: #ff4d00;
+}

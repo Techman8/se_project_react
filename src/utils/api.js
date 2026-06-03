@@ -4,15 +4,18 @@ const headers = {
   "Content-Type": "application/json",
 };
 
-const handleServerResponse = (res) => {
+export const handleServerResponse = (res) => {
   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
 };
 
-export const getItems = () =>
-  fetch(`${baseUrl}/items`, { headers }).then(handleServerResponse);
+function request(url, options) {
+  return fetch(url, options).then(handleServerResponse);
+}
+
+export const getItems = () => request(`${baseUrl}/items`, { headers });
 
 export const addCard = ({ name, imageUrl, weather }) => {
-  return fetch(`${baseUrl}/items`, {
+  return request(`${baseUrl}/items`, {
     method: "POST",
     headers,
     body: JSON.stringify({
@@ -20,12 +23,12 @@ export const addCard = ({ name, imageUrl, weather }) => {
       imageUrl,
       weather,
     }),
-  }).then(handleServerResponse);
+  });
 };
 
 export const removeItem = (itemID) => {
-  return fetch(`${baseUrl}/items/${itemID}`, {
+  return request(`${baseUrl}/items/${itemID}`, {
     method: "DELETE",
     headers,
-  }).then(handleServerResponse);
+  });
 };

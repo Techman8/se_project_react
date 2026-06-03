@@ -24,6 +24,8 @@ function App() {
   const [selectedCard, setSelectedCard] = useState({});
   const [clothingItems, setClothingItems] = useState([]);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
+  const [isLoading, setIsLoading] = useState(false);
+  const buttonText = isLoading ? "Saving..." : "Save";
 
   const handleToggleSwitchChange = () => {
     setCurrentTemperatureUnit(currentTemperatureUnit === "F" ? "C" : "F");
@@ -45,12 +47,16 @@ function App() {
       weather: inputValues.weather,
     };
 
+    setIsLoading(true);
     addCard(newCardData)
       .then((data) => {
         setClothingItems([data, ...clothingItems]);
         closeActiveModal();
       })
-      .catch(console.error);
+      .catch(console.error)
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   const closeActiveModal = () => {
@@ -136,6 +142,7 @@ function App() {
           isOpen={activeModal === "add-garment"}
           onClose={closeActiveModal}
           onAddItem={onAddItem}
+          buttonText={buttonText}
         />
         <ItemModal
           activeModal={activeModal}
@@ -143,12 +150,7 @@ function App() {
           onClose={closeActiveModal}
           onDeleteItem={deleteItemHandler}
         />
-        <Footer>
-          <p>
-            &copy; {new Date().getFullYear()} Nigel Battee - My Weather App. All
-            rights reserved.
-          </p>
-        </Footer>
+        <Footer />
       </div>
     </CurrentTemperatureUnitContext.Provider>
   );
