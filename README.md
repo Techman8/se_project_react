@@ -23,3 +23,6 @@ Item Interaction: Click on any clothing item to view it in a detailed modal with
 Daily Updates: Current date and weather information are displayed in the header
 Problem It Solves:
 Ever stood in front of your closet wondering what to wear based on the weather? WTWR eliminates that daily dilemma by providing weather-appropriate clothing suggestions at a glance, helping users dress confidently for any weather condition.
+
+## Backend Repository
+[https://github.com/Techman8/se_project_express](https://github.com/Techman8/se_project_express)
