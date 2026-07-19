@@ -1,14 +1,28 @@
+import { useContext } from "react";
 import "./Header.css";
 import logo from "../../assets/Logo.svg";
-import avatar from "../../assets/avatar.svg";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { NavLink } from "react-router-dom";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
 
-function Header({ handleAddClick, weatherData }) {
+function Header({
+  onCreateModal,
+  weatherData,
+  onRegisterClick,
+  onLoginClick,
+  isLoggedIn,
+}) {
+  const currentUser = useContext(CurrentUserContext);
+
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
   });
+
+  // Extract the first letter of the name for the fallback avatar placeholder
+  const userInitial = currentUser?.name
+    ? currentUser.name.charAt(0).toUpperCase()
+    : "";
 
   return (
     <header className="header">
@@ -18,20 +32,53 @@ function Header({ handleAddClick, weatherData }) {
       <p className="header__date-and-location">
         {currentDate}, {weatherData.city}
       </p>
+
       <ToggleSwitch />
-      <button
-        onClick={handleAddClick}
-        type="button"
-        className="header__add-clothes-btn"
-      >
-        +Add clothes
-      </button>
-      <NavLink className="header__nav-link" to="/profile">
-        <div className="header__user-container">
-          <p className="header__username">Terrence Tegegne</p>
-          <img src={avatar} alt="Terrence Tegegne" className="header__avatar" />
+
+      {/* Conditionally render header subviews depending on authorization state */}
+      {!isLoggedIn ? (
+        <div className="header__auth-container">
+          <button
+            onClick={onRegisterClick}
+            type="button"
+            className="header__auth-btn"
+          >
+            Sign Up
+          </button>
+          <button
+            onClick={onLoginClick}
+            type="button"
+            className="header__auth-btn"
+          >
+            Log In
+          </button>
         </div>
-      </NavLink>
+      ) : (
+        <div className="header__user-interface">
+          <button
+            onClick={onCreateModal}
+            type="button"
+            className="header__add-clothes-btn"
+          >
+            + Add clothes
+          </button>
+
+          <NavLink className="header__nav-link" to="/profile">
+            <div className="header__user-container">
+              <p className="header__username">{currentUser?.name || "User"}</p>
+              {currentUser?.avatar ? (
+                <img
+                  src={currentUser.avatar}
+                  alt={currentUser.name}
+                  className="header__avatar"
+                />
+              ) : (
+                <div className="header__avatar-placeholder">{userInitial}</div>
+              )}
+            </div>
+          </NavLink>
+        </div>
+      )}
     </header>
   );
 }

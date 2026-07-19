@@ -12,12 +12,17 @@ function request(url, options) {
   return fetch(url, options).then(handleServerResponse);
 }
 
+// Public Endpoint: Runs on page load without token authentication
 export const getItems = () => request(`${baseUrl}/items`, { headers });
 
-export const addCard = ({ name, imageUrl, weather }) => {
+// Protected Endpoint: Expects a token parameter from App.jsx
+export const addCard = ({ name, imageUrl, weather }, token) => {
   return request(`${baseUrl}/items`, {
     method: "POST",
-    headers,
+    headers: {
+      ...headers,
+      authorization: `Bearer ${token}`, // Appends the authorization token securely
+    },
     body: JSON.stringify({
       name,
       imageUrl,
@@ -26,9 +31,33 @@ export const addCard = ({ name, imageUrl, weather }) => {
   });
 };
 
-export const removeItem = (itemID) => {
+// Protected Endpoint: Expects a token parameter from App.jsx
+export const removeItem = (itemID, token) => {
   return request(`${baseUrl}/items/${itemID}`, {
     method: "DELETE",
-    headers,
+    headers: {
+      ...headers,
+      authorization: `Bearer ${token}`, // Appends the authorization token securely
+    },
+  });
+};
+
+export const addCardLike = (itemID, token) => {
+  return request(`${baseUrl}/items/${itemID}/likes`, {
+    method: "PUT",
+    headers: {
+      ...headers,
+      authorization: `Bearer ${token}`,
+    },
+  });
+};
+
+export const removeCardLike = (itemID, token) => {
+  return request(`${baseUrl}/items/${itemID}/likes`, {
+    method: "DELETE",
+    headers: {
+      ...headers,
+      authorization: `Bearer ${token}`,
+    },
   });
 };
