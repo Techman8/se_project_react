@@ -68,6 +68,8 @@ function App() {
   const handleLoginClick = () => setActiveModal("login");
   const handleEditProfileClick = () => setActiveModal("edit-profile");
   const closeActiveModal = () => setActiveModal("");
+  const handleToggleToRegister = () => setActiveModal("register");
+  const handleToggleToLogin = () => setActiveModal("login");
 
   // Token Check Effect run on initial load
   useEffect(() => {
@@ -110,7 +112,7 @@ function App() {
       addCardLike(id, token)
         .then((updatedCard) => {
           setClothingItems((cards) =>
-            cards.map((item) => (item._id === id ? updatedCard : item)),
+            cards.map((item) => (item._id === id ? updatedCard.data : item)),
           );
         })
         .catch((err) => console.error(err));
@@ -118,7 +120,7 @@ function App() {
       removeCardLike(id, token)
         .then((updatedCard) => {
           setClothingItems((cards) =>
-            cards.map((item) => (item._id === id ? updatedCard : item)),
+            cards.map((item) => (item._id === id ? updatedCard.data : item)),
           );
         })
         .catch((err) => console.error(err));
@@ -181,7 +183,7 @@ function App() {
     setIsLoading(true);
     addCard(newCardData, token)
       .then((data) => {
-        setClothingItems([data, ...clothingItems]);
+        setClothingItems([data.data, ...clothingItems]);
         closeActiveModal();
       })
       .catch(console.error)
@@ -287,11 +289,15 @@ function App() {
             isOpen={activeModal === "register"}
             onClose={closeActiveModal}
             onRegister={handleRegistration}
+            buttonText="Sign Up"
+            onToggleModal={handleToggleToLogin}
           />
           <LoginModal
             isOpen={activeModal === "login"}
             onClose={closeActiveModal}
             onLogin={handleLogin}
+            buttonText="Log In"
+            onToggleModal={handleToggleToRegister}
           />
           <EditProfileModal
             isOpen={activeModal === "edit-profile"}

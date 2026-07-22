@@ -41,25 +41,17 @@ function Header({
           <button
             onClick={onRegisterClick}
             type="button"
-            className="header__auth-btn"
+            className="header__btn"
           >
             Sign Up
           </button>
-          <button
-            onClick={onLoginClick}
-            type="button"
-            className="header__auth-btn"
-          >
+          <button onClick={onLoginClick} type="button" className="header__btn">
             Log In
           </button>
         </div>
       ) : (
         <div className="header__user-interface">
-          <button
-            onClick={onCreateModal}
-            type="button"
-            className="header__add-clothes-btn"
-          >
+          <button onClick={onCreateModal} type="button" className="header__btn">
             + Add clothes
           </button>
 

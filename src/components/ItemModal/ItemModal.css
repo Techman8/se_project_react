@@ -9,3 +9,9 @@
   background-color: transparent;
   color: #ff4d00;
 }
+
+.modal__container_type_image {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 16px;
+}
