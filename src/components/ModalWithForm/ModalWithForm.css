@@ -40,6 +40,11 @@
   right: 28px;
   opacity: 1;
   border: none;
+  background-size: contain;
+}
+
+.modal__container_type_image {
+  position: relative;
 }
 
 .modal__content {

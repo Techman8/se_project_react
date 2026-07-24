@@ -24,4 +24,17 @@
   border-radius: 50%;
   object-fit: cover;
   display: block;
+  margin-bottom: 16px;
+}
+
+.sidebar__controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebaredit-btn,
+.sidebarlogout-btn {
+  background-color: transparent;
+  border: none;
 }

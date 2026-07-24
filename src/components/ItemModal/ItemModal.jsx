@@ -15,9 +15,8 @@ function ItemModal({ activeModal, isOpen, card, onClose, onDeleteItem }) {
       className={`modal modal_type_preview ${activeModal === "preview" ? "modal_opened" : ""}`}
     >
       <div className="modal__container modal__container_type_image">
-        <button className="modal__close" type="button" onClick={onClose} />
         <img className="modal__image" src={card.imageUrl} alt={card.name} />
-
+        <button className="modal__close" type="button" onClick={onClose} />
         <div className="modal__footer">
           <div className="modal__text-wrapper">
             <h2 className="modal__caption">{card.name}</h2>

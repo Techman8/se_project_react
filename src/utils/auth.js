@@ -1,11 +1,5 @@
+import { handleServerResponse } from "./api.js";
 export const baseUrl = "http://localhost:3001";
-
-const checkResponse = (res) => {
-  if (res.ok) {
-    return res.json();
-  }
-  return Promise.reject(`Error: ${res.status}`);
-};
 
 export const register = ({ name, avatar, email, password }) => {
   return fetch(`${baseUrl}/signup`, {
@@ -14,7 +8,7 @@ export const register = ({ name, avatar, email, password }) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ name, avatar, email, password }),
-  }).then(checkResponse);
+  }).then(handleServerResponse);
 };
 
 export const authorize = ({ email, password }) => {
@@ -24,7 +18,7 @@ export const authorize = ({ email, password }) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ email, password }),
-  }).then(checkResponse);
+  }).then(handleServerResponse);
 };
 
 export const checkToken = (token) => {
@@ -34,7 +28,7 @@ export const checkToken = (token) => {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
-  }).then(checkResponse);
+  }).then(handleServerResponse);
 };
 
 export const patchUser = ({ name, avatar }, token) => {
@@ -45,5 +39,5 @@ export const patchUser = ({ name, avatar }, token) => {
       authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({ name, avatar }),
-  }).then(checkResponse);
+  }).then(handleServerResponse);
 };

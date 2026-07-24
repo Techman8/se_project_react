@@ -1,6 +1,7 @@
 import { useForm } from "../../hooks/useForm";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import useModalClose from "../../hooks/useModalClose";
+import { useEffect } from "react";
 
 const AddItemModal = ({ buttonText, isOpen, onAddItem, onClose }) => {
   const defaultValues = {
@@ -14,6 +15,12 @@ const AddItemModal = ({ buttonText, isOpen, onAddItem, onClose }) => {
     evt.preventDefault();
     onAddItem(values);
   }
+
+  useEffect(() => {
+    if (isOpen) {
+      // Reset logic
+    }
+  }, [isOpen]);
 
   useModalClose(isOpen, onClose);
 
