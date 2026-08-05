@@ -118,4 +118,8 @@ export const coordinates = {
   longitude: -122.804489,
 };
 
+export const baseUrl = process.env.NODE_ENV === "production" 
+  ? "https://api.wtwr.happyminecraft.org"
+  : "http://localhost:3001";
+
 export const APIkey = "8d3ad9765ad84830ae65d200baf98a0f";
