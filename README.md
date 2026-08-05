@@ -28,12 +28,4 @@ Ever stood in front of your closet wondering what to wear based on the weather? 
 
 [https://github.com/Techman8/se_project_express](https://github.com/Techman8/se_project_express)
 
-## Frontend Repository
-
-[https://github.com/Techman8/se_project_react](https://github.com/Techman8/se_project_react)
-
-## Project Domain Name
-
- api.wtwr.happyminecraft.org;
-
 
